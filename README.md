@@ -12,6 +12,11 @@ transferencia de aprendizaje (InceptionV3 preentrenado en ImageNet,
 > Mejora sobre el baseline (40 capas): test F1 macro 0,9287 → **0,9481**.
 > Detalles y conclusiones en §11 y §12. El modelo oficial es
 > `results_tf/exp_f_cap80_lr1e-5/best_stage2.keras` (copiado a `best_model.keras`).
+>
+> ⚠️ Los pesos `.keras` **no están en el repositorio** (superan el límite de
+> 100 MB/archivo de GitHub): se descargan del
+> [Release v1.0.0](https://github.com/dimasII/Entrenamiento-con-InceptionV3/releases/tag/v1.0.0).
+> Ver §13.
 
 ## Solución lograda: TensorFlow usando la RTX 3050
 
@@ -601,3 +606,37 @@ python experimentos_etapa1.py    # épocas de etapa 1
 - **Efecto principal:** descongelar más capas mejora sobre todo las clases
   difíciles (vidrios): `brown-glass` 0,82 → 0,90, `white-glass` 0,90 → 0,92.
 - **Mejor modelo global y su F1 en test:** `exp_f_cap80_lr1e-5` → **0,9481**.
+
+## 13. Modelos entrenados (descarga desde Releases)
+
+Los pesos `.keras` **no están versionados en este repositorio**: superan el
+límite de 100 MB por archivo de GitHub (el mayor pesa 181 MB) y en total suman
+~1,8 GB, por encima de la cuota gratuita de Git LFS. Se publican como *assets*
+del Release:
+
+- **[Modelos entrenados v1.0.0](https://github.com/dimasII/Entrenamiento-con-InceptionV3/releases/tag/v1.0.0)** (14 archivos, ~1,8 GB)
+
+En el Release, cada `/` de la ruta original aparece como `_`:
+
+| Archivo en el proyecto | Asset del Release |
+|---|---|
+| `results_tf/best_model.keras` | `results_tf_best_model.keras` |
+| `results_tf/best_stage1.keras` | `results_tf_best_stage1.keras` |
+| `results_tf/exp_f_cap80_lr1e-5/best_stage2.keras` | `results_tf_exp_f_cap80_lr1e-5_best_stage2.keras` |
+| `results_tf/exp_c_cap60_lr1e-5/best_stage2.keras` | `results_tf_exp_c_cap60_lr1e-5_best_stage2.keras` |
+| … (mismo patrón para los `exp_*`) | … |
+
+Tras descargarlos, se colocan en su ruta original dentro de `results_tf/`.
+`results_tf/best_model.keras` es el **modelo oficial** (copia de
+`exp_f_cap80_lr1e-5/best_stage2.keras`) y es el que usa `predict_tf.py` por
+defecto:
+
+```bash
+python predict_tf.py ruta/a/imagen.jpg --model results_tf/best_model.keras
+```
+
+> **Nota:** el resto del proyecto (código, dataset `garbage_classification/` y
+> resultados en `results_tf/`, incluidos `splits.json`, métricas y gráficas)
+> **sí** está en el repositorio. Solo se excluyen `__pycache__/`, `*.pyc` y los
+> `*.keras` (ver `.gitignore`).
+
