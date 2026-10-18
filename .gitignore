@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Modelos entrenados (superan el límite de 100 MB de GitHub; se distribuyen
+# como assets del Release de GitHub. Ver README.md > Modelos entrenados)
+*.keras
+*.h5
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/

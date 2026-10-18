@@ -1,0 +1,13 @@
+real/predicha,battery,biological,brown-glass,cardboard,clothes,green-glass,metal,paper,plastic,shoes,trash,white-glass
+battery,140,0,0,0,0,1,1,0,0,0,1,0
+biological,0,144,0,0,0,1,1,1,0,1,0,1
+brown-glass,0,0,76,0,0,11,4,0,0,0,0,1
+cardboard,0,0,0,133,0,0,0,1,1,0,0,0
+clothes,0,0,0,1,785,0,0,0,0,14,1,0
+green-glass,0,0,1,1,0,89,2,0,3,0,0,1
+metal,1,0,0,0,0,0,111,0,0,1,0,3
+paper,0,0,0,3,0,0,3,150,2,0,0,0
+plastic,0,0,0,0,0,0,4,0,118,0,0,9
+shoes,0,0,0,0,0,0,0,0,0,298,0,0
+trash,2,0,0,0,0,0,0,0,1,1,100,2
+white-glass,0,0,0,0,0,0,1,0,1,0,0,115
